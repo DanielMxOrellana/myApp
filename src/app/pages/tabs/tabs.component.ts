@@ -11,6 +11,9 @@ import { RouterModule } from '@angular/router';
     <ion-header>
       <ion-toolbar>
         <ion-title>Tabs</ion-title>
+        <ion-buttons slot="start">
+          <ion-button (click)="goBack()">Regresar</ion-button>
+        </ion-buttons>
         <ion-buttons slot="end">
           <ion-button (click)="logout()">Logout</ion-button>
         </ion-buttons>
@@ -28,5 +31,9 @@ export class TabsComponent {
   logout() {
     localStorage.removeItem('token');
     this.navCtrl.navigateRoot('/auth');
+  }
+
+  goBack() {
+    this.navCtrl.back();
   }
 }
